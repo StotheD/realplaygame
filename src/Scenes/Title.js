@@ -5,8 +5,8 @@ import Prefab from "../Prefabs/Prefab";
 import TextPrefab from "../Prefabs/TextPrefab";
 
 export default class TitleScene extends JSONLevelScene {
-  constructor (key) {
-    super(key);
+  constructor () {
+    super('Title');
 
     this.prefab_classes = {
       background: Prefab.prototype.constructor,

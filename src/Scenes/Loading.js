@@ -24,7 +24,6 @@ export default class LoadingScene extends Phaser.Scene {
           break;
         case "tilemap" :
           this.load.tilemapTiledJSON(asset_key, asset.source);
-          console.log("tiled ?");
           break;
       }
     }

@@ -3,7 +3,6 @@ import 'phaser';
 export default class TextPrefab extends Phaser.GameObjects.Text {
   constructor (scene, name, position, properties) {
     super(scene, position.x, position.y, properties.text, properties.style);
-
     this.scene = scene;
     this.name = name;
     this.scene.add.existing(this);
@@ -15,6 +14,7 @@ export default class TextPrefab extends Phaser.GameObjects.Text {
     if (properties.anchor) {
       this.setOrigine(properties.anchor.x,properties.anchor.y);
     }
+
 
     this.scene.prefabs[name] = this;
   }

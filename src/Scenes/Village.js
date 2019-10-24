@@ -3,37 +3,39 @@ import 'phaser';
 import JSONLevelScene from './JSONLevelScene';
 import Prefab from "../Prefabs/Prefab";
 import TextPrefab from "../Prefabs/TextPrefab";
+import Player from "../Prefabs/World/Player";
 
 export default class VillageScene extends JSONLevelScene {
-  constructor (key) {
-    super(key);
+  constructor () {
+    super('Village');
 
     this.prefab_classes = {
-      player: Prefab.prototype.constructor
+      player: Player.prototype.constructor
     }
   }
 
   create(){
-    console.log("where is the map ?");
+    // background
+    this.add.tileSprite(0, 0, 200, 200, 'background', 32);
     // création de la map
     this.map = this.add.tilemap(this.file_data.map.key);
 
     // ajout des tilsets à la map suivant le json indiqué
     let tileset_index = 0;
     this.tilesets = {};
-    console.log(this.map.tilesets);
     this.map.tilesets.forEach(function (tileset){
-      let map_tileset = this.map.addTilesetImage(tileset.name, this.file_data.map.tilesets[tileset_index]);
+      let map_tileset = this.map.addTilesetImage(tileset.name,
+        this.file_data.map.tilesets[tileset_index]);
       this.tilesets[this.file_data.map.tilesets[tileset_index]] = map_tileset;
       tileset_index += 1;
     }, this);
 
     // ajout des calques à la map
     this.layers = {};
-    console.log(this.map.layers);
     this.map.layers.forEach(function(layer){
-      this.layers[layer.name] = this.map.createStaticLayer(layer.name, this.tilesets[layer.properties.tileset], 0, 0);
-      if (layer.properties.collison) {
+      this.layers[layer.name] = this.map.createStaticLayer(layer.name,
+        this.tilesets[layer.properties.tileset]);
+      if (layer.properties.collision) {
         // rend le calque sensible aux collision
         // si la propriété collision est vraie dans les propriétés du calque
         this.map.setCollisionByExclusion([-1], true, layer.name);
@@ -42,10 +44,10 @@ export default class VillageScene extends JSONLevelScene {
 
     super.create();
 
-    console.log(this.map.objects);
     this.map.objects.forEach(function(object_layer){
-      // object_layer.objects.forEach(this.createObject, this);
+      object_layer.objects.forEach(this.createObject, this);
     }, this);
+
   }
 
   createObject(object){

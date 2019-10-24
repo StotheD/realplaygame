@@ -2,36 +2,36 @@
   "assets" : {
     "background_image" : {"type": "image", "source": "assets/images/background_title.jpg"}
   },
-    "groups": [
-        "background",
-        "texts"
-    ],
-    "sprites": {
-        "background": {
-            "type": "background",
-            "position": {"x": 320, "y": 240},
-            "properties": {
-              "texture": "background_image",
-              "group": "background"
-            }
-        },
-        "title_message": {
-            "type": "text",
-            "position": {"x": 20, "y": 100},
-            "properties": {
-              "style": {"font": "65px Arial", "fill": "#000000"},
-              "text": "Phaser RPG",
-              "group": "texts"
-            }
-        },
-        "start_message": {
-            "type": "text",
-            "position": {"x": 150, "y": 200},
-            "properties": {
-              "style": {"font": "20px Arial", "fill": "#000000"},
-              "text": "click to start playing",
-              "group": "texts"
-            }
+  "groups": [
+    "background",
+    "texts"
+  ],
+  "sprites": {
+    "background": {
+        "type": "background",
+        "position": {"x": 320, "y": 240},
+        "properties": {
+          "group" : "background",
+          "texture" : "background_image"
+        }
+    },
+    "title_message": {
+        "type": "text",
+        "position": {"x": 20, "y": 100},
+        "properties": {
+            "group": "texts",
+            "style" : {"font": "65px Arial", "fill": "#000000"},
+            "text" : "Phaser RPG"
+        }
+    },
+    "start_message": {
+        "type": "text",
+        "position": {"x": 150, "y": 200},
+        "properties": {
+          "group": "texts",
+          "style" : {"font": "20px Arial", "fill": "#000000"},
+          "text" : "click to start playing"
         }
     }
+  }
 }

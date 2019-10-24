@@ -1,5 +1,6 @@
 {
   "assets" : {
+    "background" : {"type": "spritesheet", "source": "assets/images/Water2_pipo.png", "frame_width": 32, "frame_height": 32},
     "map_tileset" : {"type": "image", "source": "assets/images/BaseChip_pipo_2.png"},
     "player_spritesheet" : {"type": "spritesheet", "source": "assets/images/player.png", "frame_width": 32, "frame_height": 32},
 
