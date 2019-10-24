@@ -19,7 +19,18 @@ export default class UserInput {
 
   processInput (event) {
     if (this.enabled) {
-      let user_input = this.user_inputs[event.type];
+      let user_input = this.user_inputs[event.type][event.key];
+      if (user_input) {
+        let context = undefined;
+        let callback_data = user_input.callback.split(".");
+        if (callback_data[0] === "scene") {
+          context = this.scene;
+        } else {
+          context = this.scene.prefabs[callback_data[0]];
+        }
+        let method = context[callback_data[1]];
+        method.apply(context, user_input.args);
+      }
     }
   }
 }

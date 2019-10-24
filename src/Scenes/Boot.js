@@ -6,7 +6,7 @@ export default class BootScene extends Phaser.Scene {
 
     this.files = {
       Title : {key: "Title", path: "assets/files/title_screen.json"},
-      Village : {key: "Village", path: "assets/files/village_screen.json"}
+      Village : {key: "Village", path: "assets/files/village.json"}
     }
   }
 

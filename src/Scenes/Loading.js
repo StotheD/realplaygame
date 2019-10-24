@@ -27,6 +27,8 @@ export default class LoadingScene extends Phaser.Scene {
           break;
       }
     }
+
+    this.load.json(this.file_data.user_input.key, this.file_data.user_input.path);
   }
 
   create (data) {

@@ -12,5 +12,9 @@
   "map": {
     "key" : "level_tilemap",
     "tilesets" : ["map_tileset"]
+  },
+  "user_input" : {
+    "key" : "village_user_input",
+    "path" : "assets/user_inputs/world_map_user_input.json"
   }
 }

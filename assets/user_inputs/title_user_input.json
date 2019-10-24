@@ -1,7 +1,7 @@
 {
   "keydown" : {
     "Enter" : {
-      "callback" : "scene.starGame"
+      "callback" : "scene.startGame"
     }
   },
   "keyup" : {

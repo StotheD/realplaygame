@@ -6,16 +6,15 @@ export default class Player extends Prefab {
     super(scene, name, position, properties);
 
     // récupère la valeur du JSON, avec un + pour assurer un Int
-    this.walkingSpeed = +properties.walking_speed
+    this.walkingSpeed = +properties.walking_speed;
+    this.crossSpeed = +properties.cross_speed;
 
     this.scene.cameras.main.startFollow(this);
 
     // Colliders
     this.scene.physics.add.collider(this, this.scene.layers.Blocked);
 
-    this.cursors = this.scene.input.keyboard.createCursorKeys();
-
-    console.log(this);
+    this.moving = {"left": false, "right": false, "up": false, "down": false}
 
     this.createAnimations(this.scene);
     // this.move_left = this.scene.imput.keyboard.addKey.(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -30,37 +29,37 @@ export default class Player extends Prefab {
 
   updateDirection(){
 
-    if (this.cursors.left.isDown && this.body.velocity.x <= 0 ){ // can't press on opposit key
+    if (this.moving.left && this.body.velocity.x <= 0 ){ // can't press on opposit key
       if (this.body.velocity.y === 0) { // if player don't move, start the anim
-        this.body.velocity.x = -this.speed;
+        this.body.velocity.x = -this.walkingSpeed;
         this.anims.play('walking_left', true);
-      } else if (this.body.velocity.y === this.speed || this.body.velocity.y === -this.speed) {
+      } else if (this.body.velocity.y === this.walkingSpeed || this.body.velocity.y === -this.walkingSpeed) {
         // if player already moving in an other crossing direction, velocity is lower
         this.body.velocity.x = -this.crossSpeed;
       }
-    } else if (this.cursors.right.isDown && this.body.velocity.x >= 0) {
+    } else if (this.moving.right && this.body.velocity.x >= 0) {
       if (this.body.velocity.y === 0) {
-        this.body.velocity.x = this.speed;
+        this.body.velocity.x = this.walkingSpeed;
         this.anims.play('walking_right', true);
-      } else if (this.body.velocity.y === this.speed || this.body.velocity.y === -this.speed) {
+      } else if (this.body.velocity.y === this.walkingSpeed || this.body.velocity.y === -this.walkingSpeed) {
         this.body.velocity.x = this.crossSpeed;
       }
     } else {
       this.body.velocity.x = 0;
     }
 
-    if (this.cursors.up.isDown && this.body.velocity.y <= 0 ){
+    if (this.moving.up && this.body.velocity.y <= 0 ){
       if (this.body.velocity.x === 0) {
-        this.body.velocity.y = -this.speed;
+        this.body.velocity.y = -this.walkingSpeed;
         this.anims.play('walking_up', true);
-      } else if (this.body.velocity.x === this.speed || this.body.velocity.x === -this.speed) {
+      } else if (this.body.velocity.x === this.walkingSpeed || this.body.velocity.x === -this.walkingSpeed) {
         this.body.velocity.y = -this.crossSpeed;
       }
-    } else if (this.cursors.down.isDown && this.body.velocity.y >= 0) {
+    } else if (this.moving.down && this.body.velocity.y >= 0) {
       if (this.body.velocity.x === 0) {
-        this.body.velocity.y = this.speed;
+        this.body.velocity.y = this.walkingSpeed;
         this.anims.play('walking_down', true);
-      } else if (this.body.velocity.x === this.speed || this.body.velocity.x === -this.speed) {
+      } else if (this.body.velocity.x === this.walkingSpeed || this.body.velocity.x === -this.walkingSpeed) {
         this.body.velocity.y = this.crossSpeed;
       }
     } else {
@@ -104,5 +103,9 @@ export default class Player extends Prefab {
         frames: [ { key: this.texture.key, frame: 1 } ],
         frameRate: 20
     });
+  }
+
+  changeMovement(direction, move) {
+    this.moving[direction] = move;
   }
 }
