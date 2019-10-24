@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="8">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="9">
  <tileset firstgid="1" name="BaseChip_pipo_2" tilewidth="32" tileheight="32" tilecount="1064" columns="8">
   <image source="../images/BaseChip_pipo_2.png" width="256" height="4256"/>
  </tileset>
@@ -305,6 +305,12 @@
     <property name="walking_speed" type="int" value="180"/>
    </properties>
    <point/>
+  </object>
+  <object id="8" name="door" type="door" x="480.5" y="16" width="65" height="30">
+   <properties>
+    <property name="group" value="doors"/>
+    <property name="next_level" value="Wild"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

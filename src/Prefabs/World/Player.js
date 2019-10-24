@@ -24,7 +24,9 @@ export default class Player extends Prefab {
   }
 
   update () {
-    this.updateDirection();
+    if (this.body) {
+      this.updateDirection();
+    }
   }
 
   updateDirection(){

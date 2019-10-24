@@ -141,6 +141,27 @@
                  "width":0,
                  "x":272.121,
                  "y":364.858
+                }, 
+                {
+                 "height":30,
+                 "id":8,
+                 "name":"door",
+                 "properties":
+                    {
+                     "group":"doors",
+                     "next_level":"Wild"
+                    },
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "next_level":"string"
+                    },
+                 "rotation":0,
+                 "type":"door",
+                 "visible":true,
+                 "width":65,
+                 "x":480.5,
+                 "y":16
                 }],
          "opacity":1,
          "properties":
@@ -157,7 +178,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":8,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

@@ -7,6 +7,16 @@
          "id":1,
          "name":"Background",
          "opacity":1,
+         "properties":
+            {
+             "collision":false,
+             "tileset":"map_tileset"
+            },
+         "propertytypes":
+            {
+             "collision":"bool",
+             "tileset":"string"
+            },
          "type":"tilelayer",
          "visible":true,
          "width":50,
@@ -19,6 +29,16 @@
          "id":2,
          "name":"Blocked",
          "opacity":1,
+         "properties":
+            {
+             "collision":true,
+             "tileset":"map_tileset"
+            },
+         "propertytypes":
+            {
+             "collision":"bool",
+             "tileset":"string"
+            },
          "type":"tilelayer",
          "visible":true,
          "width":50,
@@ -27,53 +47,83 @@
         }, 
         {
          "draworder":"topdown",
-         "id":3,
-         "name":"Player",
+         "id":5,
+         "name":"Objects",
          "objects":[
                 {
                  "height":0,
-                 "id":1,
-                 "name":"Player",
+                 "id":5,
+                 "name":"player",
                  "point":true,
+                 "properties":
+                    {
+                     "cross_speed":70,
+                     "group":"players",
+                     "texture":"player_spritesheet",
+                     "walking_speed":180
+                    },
+                 "propertytypes":
+                    {
+                     "cross_speed":"int",
+                     "group":"string",
+                     "texture":"string",
+                     "walking_speed":"int"
+                    },
                  "rotation":0,
-                 "type":"startingPositionPortal",
+                 "type":"player",
                  "visible":true,
                  "width":0,
-                 "x":448,
-                 "y":1529
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":4,
-         "name":"Portal",
-         "objects":[
+                 "x":447,
+                 "y":1532
+                }, 
                 {
-                 "height":0,
-                 "id":3,
-                 "name":"Portal",
-                 "point":true,
+                 "height":30,
+                 "id":6,
+                 "name":"door",
+                 "properties":
+                    {
+                     "group":"doors",
+                     "next_level":"Village"
+                    },
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "next_level":"string"
+                    },
                  "rotation":0,
-                 "type":"Portal",
+                 "type":"door",
                  "visible":true,
-                 "width":0,
-                 "x":449,
-                 "y":1582
+                 "width":65,
+                 "x":413,
+                 "y":1568
                 }],
          "opacity":1,
+         "properties":
+            {
+             "tileset":"map_tileset"
+            },
+         "propertytypes":
+            {
+             "tileset":"string"
+            },
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":4,
+ "nextlayerid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
+ "properties":
+    {
+     "collision":true,
+     "tileset":"map_tileset"
+    },
+ "propertytypes":
+    {
+     "collision":"bool",
+     "tileset":"string"
+    },
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
  "tileheight":32,
@@ -93,6 +143,6 @@
         }],
  "tilewidth":32,
  "type":"map",
- "version":1.2,
+ "version":1.1,
  "width":50
 }

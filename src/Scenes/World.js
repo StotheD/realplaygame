@@ -4,13 +4,15 @@ import JSONLevelScene from './JSONLevelScene';
 import Prefab from "../Prefabs/Prefab";
 import TextPrefab from "../Prefabs/TextPrefab";
 import Player from "../Prefabs/World/Player";
+import Door from "../Prefabs/World/Door";
 
-export default class VillageScene extends JSONLevelScene {
+export default class WorldScene extends JSONLevelScene {
   constructor () {
-    super('Village');
+    super('World');
 
     this.prefab_classes = {
-      player: Player.prototype.constructor
+      player: Player.prototype.constructor,
+      door: Door.prototype.constructor
     }
   }
 
