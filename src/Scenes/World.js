@@ -5,6 +5,7 @@ import Prefab from "../Prefabs/Prefab";
 import TextPrefab from "../Prefabs/TextPrefab";
 import Player from "../Prefabs/World/Player";
 import Door from "../Prefabs/World/Door";
+import PNJ from "../Prefabs/World/PNJ";
 
 export default class WorldScene extends JSONLevelScene {
   constructor () {
@@ -12,7 +13,14 @@ export default class WorldScene extends JSONLevelScene {
 
     this.prefab_classes = {
       player: Player.prototype.constructor,
-      door: Door.prototype.constructor
+      door: Door.prototype.constructor,
+      pnj: PNJ.prototype.constructor
+    }
+  }
+
+  preload () {
+    for (let pnj_message_name in this.file_data.pnj_messages) {
+      this.load.text(pnj_message_name, this.file_data.pnj_messages[pnj_message_name]);
     }
   }
 

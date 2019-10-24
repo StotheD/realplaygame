@@ -162,6 +162,54 @@
                  "width":65,
                  "x":480.5,
                  "y":16
+                }, 
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"Old_man",
+                 "point":true,
+                 "properties":
+                    {
+                     "group":"pnjs",
+                     "message":"old_man_message",
+                     "texture":"old_man_spritesheet"
+                    },
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "message":"string",
+                     "texture":"string"
+                    },
+                 "rotation":0,
+                 "type":"pnj",
+                 "visible":true,
+                 "width":0,
+                 "x":431,
+                 "y":435
+                }, 
+                {
+                 "height":0,
+                 "id":11,
+                 "name":"Witch",
+                 "point":true,
+                 "properties":
+                    {
+                     "group":"pnjs",
+                     "message":"witch_message",
+                     "texture":"witch_spritesheet"
+                    },
+                 "propertytypes":
+                    {
+                     "group":"string",
+                     "message":"string",
+                     "texture":"string"
+                    },
+                 "rotation":0,
+                 "type":"pnj",
+                 "visible":true,
+                 "width":0,
+                 "x":56,
+                 "y":433
                 }],
          "opacity":1,
          "properties":
@@ -178,7 +226,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":9,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

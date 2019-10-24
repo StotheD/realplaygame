@@ -4,11 +4,16 @@
     "map_tileset" : {"type": "image", "source": "assets/images/BaseChip_pipo_2.png"},
     "player_spritesheet" : {"type": "spritesheet", "source": "assets/images/player.png", "frame_width": 32, "frame_height": 32},
 
+    "witch_spritesheet" : {"type": "spritesheet", "source": "assets/images/witch.png", "frame_width": 32, "frame_height": 32},
+    "old_man_spritesheet" : {"type": "spritesheet", "source": "assets/images/old_man.png", "frame_width": 32, "frame_height": 32},
+
+
     "village_level_tilemap" : {"type" : "tilemap", "source": "assets/tilemaps/village.json"}
   },
   "groups": [
       "players",
-      "doors"
+      "doors",
+      "pnjs"
   ],
   "map": {
     "key" : "village_level_tilemap",
@@ -17,5 +22,10 @@
   "user_input" : {
     "key" : "village_user_input",
     "path" : "assets/user_inputs/world_map_user_input.json"
+  },
+  "pnj_messages" : {
+    "witch_message" : "assets/pnj_messages/witch.txt",
+    "old_man_message" : "assets/pnj_messages/old_man.txt"
   }
+
 }
