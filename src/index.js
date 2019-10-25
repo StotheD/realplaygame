@@ -3,7 +3,7 @@ import config from "./config";
 import BootScene from './Scenes/Boot';
 import WorldScene from './Scenes/World';
 import TitleScene from './Scenes/Title';
-import LoadingScene from './Scenes/loading';
+import LoadingScene from './Scenes/Loading';
 // import GameScene from './Scenes/Game';
 
 

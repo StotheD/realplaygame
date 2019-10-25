@@ -16,6 +16,8 @@ export default class WorldScene extends JSONLevelScene {
       door: Door.prototype.constructor,
       pnj: PNJ.prototype.constructor
     }
+
+    this.TEXT_STYLE = {font: "14px Arial", fill:"#ffffff"};
   }
 
   preload () {
@@ -65,5 +67,10 @@ export default class WorldScene extends JSONLevelScene {
     if (this.prefab_classes.hasOwnProperty(object.type)) {
       let prefab = new this.prefab_classes[object.type](this, object.name, position, object.properties);
     }
+  }
+
+  endTalk(){
+    this.currentMessageBox.destroy();
+    this.user_input.setInput(this.user_inputs.village_user_input);
   }
 };

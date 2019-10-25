@@ -4,6 +4,8 @@
     "map_tileset" : {"type": "image", "source": "assets/images/BaseChip_pipo_2.png"},
     "player_spritesheet" : {"type": "spritesheet", "source": "assets/images/player.png", "frame_width": 32, "frame_height": 32},
 
+    "message_box_image" : {"type": "image", "source": "assets/images/message_box.png"},
+
     "wild_level_tilemap" : {"type" : "tilemap", "source": "assets/tilemaps/wild.json"}
   },
   "groups": [
@@ -15,7 +17,8 @@
     "tilesets" : ["map_tileset"]
   },
   "user_input" : {
-    "key" : "wild_user_input",
-    "path" : "assets/user_inputs/world_map_user_input.json"
-  }
+    "wild_user_input" : "assets/user_inputs/world_map_user_input.json",
+    "talking_user_input" : "assets/user_inputs/talking_user_input.json"
+  },
+  "initial_user_input" : "wild_user_input"
 }

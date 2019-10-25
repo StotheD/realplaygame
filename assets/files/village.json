@@ -7,22 +7,25 @@
     "witch_spritesheet" : {"type": "spritesheet", "source": "assets/images/witch.png", "frame_width": 32, "frame_height": 32},
     "old_man_spritesheet" : {"type": "spritesheet", "source": "assets/images/old_man.png", "frame_width": 32, "frame_height": 32},
 
+    "message_box_image" : {"type": "image", "source": "assets/images/message_box.png"},
 
     "village_level_tilemap" : {"type" : "tilemap", "source": "assets/tilemaps/village.json"}
   },
   "groups": [
       "players",
       "doors",
-      "pnjs"
+      "pnjs",
+      "hud"
   ],
   "map": {
     "key" : "village_level_tilemap",
     "tilesets" : ["map_tileset"]
   },
   "user_input" : {
-    "key" : "village_user_input",
-    "path" : "assets/user_inputs/world_map_user_input.json"
+    "village_user_input" : "assets/user_inputs/world_map_user_input.json",
+    "talking_user_input" : "assets/user_inputs/talking_user_input.json"
   },
+  "initial_user_input" : "village_user_input",
   "pnj_messages" : {
     "witch_message" : "assets/pnj_messages/witch.txt",
     "old_man_message" : "assets/pnj_messages/old_man.txt"
