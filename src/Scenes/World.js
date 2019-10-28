@@ -22,13 +22,13 @@ export default class WorldScene extends JSONLevelScene {
 
   preload () {
     for (let pnj_message_name in this.file_data.pnj_messages) {
-      this.load.text(pnj_message_name, this.file_data.pnj_messages[pnj_message_name]);
+      this.load.json(pnj_message_name, this.file_data.pnj_messages[pnj_message_name]);
     }
   }
 
   create(){
     // background
-    this.add.tileSprite(0, 0, 200, 200, 'background', 32);
+    this.add.tileSprite(800, 800, 3000, 3000, 'background', 32);
     // création de la map
     this.map = this.add.tilemap(this.file_data.map.key);
 
@@ -69,8 +69,4 @@ export default class WorldScene extends JSONLevelScene {
     }
   }
 
-  endTalk(){
-    this.currentMessageBox.destroy();
-    this.user_input.setInput(this.user_inputs.village_user_input);
-  }
 };

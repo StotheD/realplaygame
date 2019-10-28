@@ -2,6 +2,7 @@
   "assets" : {
     "background" : {"type": "spritesheet", "source": "assets/images/Water2_pipo.png", "frame_width": 32, "frame_height": 32},
     "map_tileset" : {"type": "image", "source": "assets/images/BaseChip_pipo_2.png"},
+    "grass_tileset" : {"type" : "image", "source" : "assets/images/Grass1_pipo.png"},
     "player_spritesheet" : {"type": "spritesheet", "source": "assets/images/player.png", "frame_width": 32, "frame_height": 32},
 
     "witch_spritesheet" : {"type": "spritesheet", "source": "assets/images/witch.png", "frame_width": 32, "frame_height": 32},
@@ -19,7 +20,7 @@
   ],
   "map": {
     "key" : "village_level_tilemap",
-    "tilesets" : ["map_tileset"]
+    "tilesets" : ["map_tileset", "grass_tileset"]
   },
   "user_input" : {
     "village_user_input" : "assets/user_inputs/world_map_user_input.json",
@@ -27,8 +28,7 @@
   },
   "initial_user_input" : "village_user_input",
   "pnj_messages" : {
-    "witch_message" : "assets/pnj_messages/witch.txt",
-    "old_man_message" : "assets/pnj_messages/old_man.txt"
+    "witch_message" : "assets/pnj_messages/witch.json",
+    "old_man_message" : "assets/pnj_messages/old_man.json"
   }
-
 }
