@@ -9,6 +9,7 @@ export default class PNJ extends Prefab {
       this.body.immovable = true;
 
       this.scene.physics.add.collider(this, this.scene.groups.players, this.talk, null, this);
+
       this.MESSAGE = 0;
     }
 
@@ -26,19 +27,17 @@ export default class PNJ extends Prefab {
     }
 
     nextTalk(){
-      this.MESSAGE += 1;
-
       // si le message change on l'affiche, sinon on sort de la conversation
-      if (this.messages[this.MESSAGE]) {
+      if (this.scene.currentMessageBox.still_have_something_to_say) {
         // change le message du pnj selon le json associé
-        this.scene.currentMessageBox.messageText.setText(this.messages[this.MESSAGE]);
+        this.scene.currentMessageBox.nextLines();
+        // this.scene.currentMessageBox.messageText.runWordWrap(this.messages[this.MESSAGE]);
       } else {
         this.endTalk();
       }
     }
 
     endTalk(){
-      this.MESSAGE = 0;
       this.scene.currentMessageBox.destroy();
       this.scene.user_input.setInput(this.scene.user_inputs.village_user_input);
     }

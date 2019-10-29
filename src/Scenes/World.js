@@ -17,7 +17,15 @@ export default class WorldScene extends JSONLevelScene {
       pnj: PNJ.prototype.constructor
     }
 
-    this.TEXT_STYLE = {font: "14px Arial", fill:"#ffffff"};
+    this.TEXT_STYLE = {
+      font: "16px Arial",
+      fill:"#ffffff",
+      lineSpacing: 3,
+      wordWrap: {
+        width: 600,
+        useAdvancedWrap: true
+      }
+    };
   }
 
   preload () {
