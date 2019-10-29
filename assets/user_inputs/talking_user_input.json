@@ -1,0 +1,10 @@
+{
+  "keydown" : {
+    "Enter" : {
+      "callback" : "pnj.nextTalk"
+    }
+  },
+  "keyup" : {
+
+  }
+}

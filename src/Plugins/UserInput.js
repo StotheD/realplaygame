@@ -25,6 +25,8 @@ export default class UserInput {
         let callback_data = user_input.callback.split(".");
         if (callback_data[0] === "scene") {
           context = this.scene;
+        } else if (callback_data[0] === "pnj") {
+          context = this.scene.prefabs[this.scene.witch_pnj_i_m_talking_to];
         } else {
           context = this.scene.prefabs[callback_data[0]];
         }

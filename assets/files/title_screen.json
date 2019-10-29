@@ -37,5 +37,9 @@
   "user_input" : {
     "key" : "title_user_input",
     "path" : "assets/user_inputs/title_user_input.json"
-  }
+  },
+  "user_input" : {
+    "title_user_input" : "assets/user_inputs/title_user_input.json"
+  },
+  "initial_user_input" : "title_user_input"
 }

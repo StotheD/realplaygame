@@ -26,8 +26,13 @@ export default class JSONLevelScene extends Phaser.Scene {
           prefab_name, prefab_data.position, prefab_data.properties);
     }
 
+    this.user_inputs = {};
+    for (let user_input_key in this.file_data.user_input) {
+      this.user_inputs[user_input_key] = this.cache.json.get(user_input_key);
+    }
+
     this.user_input = new UserInput(this);
-    this.user_input_data = this.cache.json.get(this.file_data.user_input.key);
+    this.user_input_data = this.cache.json.get(this.file_data.initial_user_input);
     this.user_input.setInput(this.user_input_data);
   }
 

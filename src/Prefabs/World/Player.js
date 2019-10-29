@@ -14,7 +14,7 @@ export default class Player extends Prefab {
     // Colliders
     this.scene.physics.add.collider(this, this.scene.layers.Blocked);
 
-    this.moving = {"left": false, "right": false, "up": false, "down": false}
+    this.moving = {"left": false, "right": false, "up": false, "down": false};
 
     this.createAnimations(this.scene);
     // this.move_left = this.scene.imput.keyboard.addKey.(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -24,7 +24,9 @@ export default class Player extends Prefab {
   }
 
   update () {
-    this.updateDirection();
+    if (this.body) {
+      this.updateDirection();
+    }
   }
 
   updateDirection(){
@@ -107,5 +109,9 @@ export default class Player extends Prefab {
 
   changeMovement(direction, move) {
     this.moving[direction] = move;
+  }
+
+  stop() {
+    this.moving = {"left": false, "right": false, "up": false, "down": false};
   }
 }
