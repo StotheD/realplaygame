@@ -31,13 +31,9 @@ export default class MessageBox extends Prefab {
     nextLines() {
       // if the text message is more than maxLines, show only maxLines in a time
       if (this.writting) {
-        this.writeStop(this.messageText);
+        this.writeStop();
       } else {
-        if (this.scene.currentMessageBox.still_have_something_to_say) {
-          this.parceMessage();
-        } else {
-          this.endTalk();
-        }
+        this.parceMessage();
       }
     }
 
@@ -59,8 +55,8 @@ export default class MessageBox extends Prefab {
     writeText(context, text){
       // text must be an array of sting texts
       // context must be a Text object like Textprefabs
-      this.writting = true;
       this.messageParced = "";
+      this.writting = true;
 
       var lastLine = text.length;
       var t = 0;
@@ -68,23 +64,23 @@ export default class MessageBox extends Prefab {
       for (let line in text) {
         for (let letter in text[line]) {
           this.messageParced = this.messageParced + text[line][letter];
-          this.waitHandler.push(setTimeout(this.writeSteps, t, context, this.messageParced));
+          this.waitHandler.push(setTimeout(this.writeSteps.bind(this), t, context, this.messageParced));
           t += this.writtingSpeed;
         }
         lastLine -= 1;
         if (lastLine > 0) this.messageParced = this.messageParced+"\n";
       }
-      this.waitHandler.push(setTimeout(this.writeStop, t, this.messageText));
+      this.waitHandler.push(setTimeout(this.writeStop.bind(this), t));
     }
 
     writeSteps(context, message){
       context.setText(message);
     }
 
-    writeStop(context){
+    writeStop(){
       this.writting = false;
       this.waitHandler.forEach(clearTimeout);
-      context.setText(this.messageParced);
+      this.messageText.setText(this.messageParced);
     }
 
     destroy(){
