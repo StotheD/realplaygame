@@ -28,7 +28,7 @@ export default class PNJ extends Prefab {
 
     nextTalk(){
       // si le message change on l'affiche, sinon on sort de la conversation
-      if (this.scene.currentMessageBox.still_have_something_to_say) {
+      if (this.scene.currentMessageBox.still_have_something_to_say || this.scene.currentMessageBox.writting) {
         // change le message du pnj selon le json associé
         this.scene.currentMessageBox.nextLines();
         // this.scene.currentMessageBox.messageText.runWordWrap(this.messages[this.MESSAGE]);
@@ -36,7 +36,6 @@ export default class PNJ extends Prefab {
         this.endTalk();
       }
     }
-
     endTalk(){
       this.scene.currentMessageBox.destroy();
       this.scene.user_input.setInput(this.scene.user_inputs.village_user_input);

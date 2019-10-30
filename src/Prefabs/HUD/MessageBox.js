@@ -10,62 +10,81 @@ export default class MessageBox extends Prefab {
         {group: "hud", text: properties.message, style: this.scene.TEXT_STYLE}
       );
 
-      this.wrappedMessage = this.messageText.getWrappedText();
+      // VARIABLES
+      this.writtingSpeed = 20;
       this.maxLines = 4;
+
+      // NEEDED
+      this.wrappedMessage = this.messageText.getWrappedText();
+      this.messageText.setText("");
       this.linesBreak = 0;
       this.still_have_something_to_say = true;
       this.writting = false;
-      this.timedEvent;
+      this.messageParced = "";
+      this.waitHandler=[];
 
       this.setOrigin(0);
       this.messageText.setOrigin(0);
-      this.nextLines();
+      this.parceMessage();
     }
 
     nextLines() {
       // if the text message is more than maxLines, show only maxLines in a time
+      if (this.writting) {
+        this.writeStop(this.messageText);
+      } else {
+        if (this.scene.currentMessageBox.still_have_something_to_say) {
+          this.parceMessage();
+        } else {
+          this.endTalk();
+        }
+      }
+    }
+
+    parceMessage(){
       if (this.wrappedMessage.length < this.maxLines) {
         this.still_have_something_to_say = false;
-        this.writeText(this.wrappedMessage, this.messageText);
+        this.writeText(this.messageText, this.wrappedMessage);
       } else {
         let minLinesBreak = this.linesBreak;
         this.linesBreak += this.maxLines;
         let messageLines = this.wrappedMessage.slice(minLinesBreak, this.linesBreak)
-        this.writeText(messageLines, this.messageText);
+        this.writeText(this.messageText, messageLines);
         if (this.wrappedMessage.length < this.linesBreak) {
           this.still_have_something_to_say = false;
         }
       }
     }
 
-    writeText(text, context){
+    writeText(context, text){
       // text must be an array of sting texts
       // context must be a Text object like Textprefabs
-      var lastLine = text.length
-      var previewsLines = "";
+      this.writting = true;
+      this.messageParced = "";
+
+      var lastLine = text.length;
       var t = 0;
 
       for (let line in text) {
-        var lineLength = text[line].length;
-        while (lineLength > 0) {
-          var messageParced = text[line].slice(0,-lineLength);
-          messageParced = previewsLines + messageParced;
-          setTimeout(this.writeSteps, t, context, messageParced);
-          lineLength -= 1;
-          t += 20;
+        for (let letter in text[line]) {
+          this.messageParced = this.messageParced + text[line][letter];
+          this.waitHandler.push(setTimeout(this.writeSteps, t, context, this.messageParced));
+          t += this.writtingSpeed;
         }
         lastLine -= 1;
-        if (lastLine > 0) {
-          messageParced = messageParced+"\n";
-          setTimeout(this.writeSteps, t, context, messageParced);
-        }
-        previewsLines = messageParced
+        if (lastLine > 0) this.messageParced = this.messageParced+"\n";
       }
+      this.waitHandler.push(setTimeout(this.writeStop, t, this.messageText));
     }
 
     writeSteps(context, message){
-      console.log("write");
       context.setText(message);
+    }
+
+    writeStop(context){
+      this.writting = false;
+      this.waitHandler.forEach(clearTimeout);
+      context.setText(this.messageParced);
     }
 
     destroy(){
