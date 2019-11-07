@@ -96,6 +96,32 @@
                  "width":65,
                  "x":413,
                  "y":1568
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"Old_man",
+                 "point":true,
+                 "properties":
+                    {
+                     "chapitre":"wild-0",
+                     "group":"pnjs",
+                     "message":"old_man_message",
+                     "texture":"old_man_spritesheet"
+                    },
+                 "propertytypes":
+                    {
+                     "chapitre":"string",
+                     "group":"string",
+                     "message":"string",
+                     "texture":"string"
+                    },
+                 "rotation":0,
+                 "type":"pnj",
+                 "visible":true,
+                 "width":0,
+                 "x":430,
+                 "y":1405
                 }],
          "opacity":1,
          "properties":
@@ -112,7 +138,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "properties":
     {

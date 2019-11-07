@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="7">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="8">
  <properties>
   <property name="collision" type="bool" value="true"/>
   <property name="tileset" value="map_tileset"/>
@@ -141,6 +141,15 @@
     <property name="group" value="doors"/>
     <property name="next_level" value="Village"/>
    </properties>
+  </object>
+  <object id="7" name="Old_man" type="pnj" x="430" y="1405">
+   <properties>
+    <property name="chapitre" value="wild-0"/>
+    <property name="group" value="pnjs"/>
+    <property name="message" value="old_man_message"/>
+    <property name="texture" value="old_man_spritesheet"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

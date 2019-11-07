@@ -11,8 +11,8 @@ export default class PNJ extends Prefab {
 
       this.scene.physics.add.collider(this, this.scene.groups.players, this.talk, null, this);
 
-      this.CHAPITRE = "village-0";
-      this.message = this.messages[this.CHAPITRE].first_talk;
+      this.chapitre = this.properties.chapitre;
+      this.message = this.messages[this.chapitre].first_talk;
     }
 
     talk(npc, player) {
@@ -27,8 +27,8 @@ export default class PNJ extends Prefab {
 
       this.scene.user_input.setInput(this.scene.user_inputs.talking_user_input);
 
-      if (this.messages[this.CHAPITRE].default) {
-        this.message = this.messages[this.CHAPITRE].default;
+      if (this.messages[this.chapitre].default) {
+        this.message = this.messages[this.chapitre].default;
       }
     }
 
@@ -39,13 +39,13 @@ export default class PNJ extends Prefab {
         this.scene.currentMessageBox.nextLines();
         // this.scene.currentMessageBox.messageText.runWordWrap(this.messages[this.MESSAGE]);
       } else if (this.scene.currentMessageBox.multiText) {
-        this.scene.currentMessageBox.nextTalker();      
+        this.scene.currentMessageBox.nextTalker();
       } else {
         this.endTalk();
       }
     }
     endTalk(){
       this.scene.currentMessageBox.destroy();
-      this.scene.user_input.setInput(this.scene.user_inputs.village_user_input);
+      this.scene.user_input.setInput(this.scene.user_inputs.world_user_input);
     }
 }

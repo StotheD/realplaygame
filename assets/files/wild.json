@@ -10,6 +10,8 @@
   },
   "groups": [
       "players",
+      "pnjs",
+      "hud",
       "doors"
   ],
   "map": {
@@ -17,8 +19,12 @@
     "tilesets" : ["map_tileset"]
   },
   "user_input" : {
-    "wild_user_input" : "assets/user_inputs/world_map_user_input.json",
+    "world_user_input" : "assets/user_inputs/world_map_user_input.json",
     "talking_user_input" : "assets/user_inputs/talking_user_input.json"
   },
-  "initial_user_input" : "wild_user_input"
+  "initial_user_input" : "world_user_input",
+  "pnj_messages" : {
+    "witch_message" : "assets/pnj_messages/witch.json",
+    "old_man_message" : "assets/pnj_messages/old_man.json"
+  }
 }

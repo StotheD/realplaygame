@@ -192,12 +192,14 @@
                  "point":true,
                  "properties":
                     {
+                     "chapitre":"village-0",
                      "group":"pnjs",
                      "message":"old_man_message",
                      "texture":"old_man_spritesheet"
                     },
                  "propertytypes":
                     {
+                     "chapitre":"string",
                      "group":"string",
                      "message":"string",
                      "texture":"string"
@@ -216,12 +218,14 @@
                  "point":true,
                  "properties":
                     {
+                     "chapitre":"village-0",
                      "group":"pnjs",
                      "message":"witch_message",
                      "texture":"witch_spritesheet"
                     },
                  "propertytypes":
                     {
+                     "chapitre":"string",
                      "group":"string",
                      "message":"string",
                      "texture":"string"
