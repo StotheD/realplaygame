@@ -1,3 +1,7 @@
 {
-  "0" : "Agoula bilouba ronoa ta gogogolo loupouloutoutout ! ... Cherche pas, tu comprendras pas."
+  "village-0" : {
+    "first_talk" : {
+      "0" : ["witch", "Agoula bilouba ronoa ta gogogolo loupouloutoutout ! ... Cherche pas, tu comprendras pas."]
+    }
+  }
 }

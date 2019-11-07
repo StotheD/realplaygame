@@ -1,3 +1,11 @@
 {
-  "0" : ["Tu sais les filles méfis toi, c'est pas c'que tu crois ! \n Elles sont toutes belles belles belles comme le jouuuuuur, \n Belle belle belle comme l'amouuuuuur !! \n voilà une maginifique chanson que j'ai hérité de je ne sais où... je ne me rappelle plus... à mon age c'est conpliqué, je sais plus trop ce que je dis. C'est surement pour faire plus de texte; lol."]
+  "village-0" : {
+    "default" : {
+      "0" : ["old_man","J'ai pas tout compris, mais je suis contant"]
+    },
+    "first_talk" : {
+      "0" : ["old_man", "Tu sais les filles méfis toi, c'est pas c'que tu crois ! \n Elles sont toutes belles belles belles comme le jouuuuuur, \n Belle belle belle comme l'amouuuuuur !! \n voilà une maginifique chanson que j'ai hérité de je ne sais où... je ne me rappelle plus... à mon age c'est conpliqué, je sais plus trop ce que je dis. C'est surement pour faire plus de texte; lol."],
+      "1" : ["player", "Vieux, fait tourner ton matos, ça à l'air puissant. écrire du texte pour écrire du text c'est vraiment pas sympas. ça prend du temps et franchement je comprends pas le sens de tout cela. Alors voilà, je vais pas écrir plus de text à mon tour. on a compris le principe. oui... cest suffisant, ça va le faire.... et non, faut que ce soit encore plus long ! incroyable."]
+    }
+  }
 }

@@ -5,14 +5,46 @@ import TextPrefab from "../TextPrefab";
 export default class MessageBox extends Prefab {
   constructor (scene, name, position, properties) {
     super(scene, name, position, properties);
-      this.messageText = new TextPrefab(this.scene, this.name + "_message",
-        {x: this.x + 40, y: this.y + 20},
-        {group: "hud", text: properties.message, style: this.scene.TEXT_STYLE}
-      );
+      this.scene = scene;
+      this.name = name;
+      this.position = position;
+      this.properties = properties;
 
-      // VARIABLES
+      this.multiText = true;
+      this.dialogStatut = 0;
+      this.talkers = [];
+      this.dialogs = [];
+
+      for (let key in properties.message) {
+        this.talkers.push(properties.message[key][0]);
+        this.dialogs.push(properties.message[key][1]);
+      }
+      console.log(this.talkers);
+      console.log(this.dialogs);
+      // properties.message.forEach(function(key){
+      //   this.talkers.push(key);
+      //   this.dialogs.push(array[1]);
+      // }, this);
+
+      // VARIABLES FIXES
       this.writtingSpeed = 20;
       this.maxLines = 4;
+
+      this.creatMessage();
+    }
+
+    creatMessage() {
+      let witch_one_is_talking = this.talkers[this.dialogStatut];
+      let what_is_saying = this.dialogs[this.dialogStatut]
+
+      this.messageText = new TextPrefab(this.scene, this.name + "_message",
+        {x: this.x + 80, y: this.y + 20},
+        {group: "hud", text: what_is_saying, style: this.scene.TEXT_STYLE}
+      );
+      this.messageImage = new Prefab(this.scene, this.name + "_image",
+        {x: this.x + 10, y: this.y + 20},
+        {group: "hud", texture: witch_one_is_talking+"_spritesheet", frame: 1, scale: {x: 1.8, y: 1.8}}
+      );
 
       // NEEDED
       this.wrappedMessage = this.messageText.getWrappedText();
@@ -25,7 +57,24 @@ export default class MessageBox extends Prefab {
 
       this.setOrigin(0);
       this.messageText.setOrigin(0);
+      this.messageImage.setOrigin(0);
       this.parceMessage();
+
+      console.log(this.dialogStatut);
+      console.log(this.dialogs.length);
+
+      if (this.dialogStatut === this.dialogs.length - 1) {
+        this.multiText = false;
+      }
+    }
+
+    nextTalker () {
+      this.dialogStatut += 1;
+
+      this.messageText.destroy();
+      this.messageImage.destroy();
+
+      this.creatMessage();
     }
 
     nextLines() {
@@ -86,5 +135,6 @@ export default class MessageBox extends Prefab {
     destroy(){
       super.destroy();
       this.messageText.destroy();
+      this.messageImage.destroy();
     }
 }

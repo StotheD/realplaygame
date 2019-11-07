@@ -22,7 +22,7 @@ export default class WorldScene extends JSONLevelScene {
       fill:"#ffffff",
       lineSpacing: 3,
       wordWrap: {
-        width: 600,
+        width: 550,
         useAdvancedWrap: true
       }
     };
