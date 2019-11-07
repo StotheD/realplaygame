@@ -10,7 +10,8 @@
   },
   "wild-0" : {
     "first_talk" : {
-      "0" : ["old_man", "Tu as fait vite !"]
+      "0" : ["old_man", "Tu as fait vite !"],
+      "1" : ["player", "ouais je suis trop rapide t'as vu ... kécktuvafaire"]
     }
   },
   "village-1" : {
