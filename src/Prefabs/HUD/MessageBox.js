@@ -19,8 +19,6 @@ export default class MessageBox extends Prefab {
         this.talkers.push(properties.message[key][0]);
         this.dialogs.push(properties.message[key][1]);
       }
-      console.log(this.talkers);
-      console.log(this.dialogs);
       // properties.message.forEach(function(key){
       //   this.talkers.push(key);
       //   this.dialogs.push(array[1]);
@@ -59,9 +57,6 @@ export default class MessageBox extends Prefab {
       this.messageText.setOrigin(0);
       this.messageImage.setOrigin(0);
       this.parceMessage();
-
-      console.log(this.dialogStatut);
-      console.log(this.dialogs.length);
 
       if (this.dialogStatut === this.dialogs.length - 1) {
         this.multiText = false;
