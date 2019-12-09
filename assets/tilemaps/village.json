@@ -193,6 +193,7 @@
                  "properties":
                     {
                      "chapitre":"village-0",
+                     "emote":"talking_spritesheet",
                      "group":"pnjs",
                      "message":"old_man_message",
                      "texture":"old_man_spritesheet"
@@ -200,6 +201,7 @@
                  "propertytypes":
                     {
                      "chapitre":"string",
+                     "emote":"string",
                      "group":"string",
                      "message":"string",
                      "texture":"string"
@@ -219,6 +221,7 @@
                  "properties":
                     {
                      "chapitre":"village-0",
+                     "emote":"talking_spritesheet",
                      "group":"pnjs",
                      "message":"witch_message",
                      "texture":"witch_spritesheet"
@@ -226,6 +229,7 @@
                  "propertytypes":
                     {
                      "chapitre":"string",
+                     "emote":"string",
                      "group":"string",
                      "message":"string",
                      "texture":"string"

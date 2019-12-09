@@ -15,6 +15,9 @@
     "ArrowLeft" : {
       "callback" : "player.changeMovement",
       "args" : ["left", true]
+    },
+    "Enter" : {
+      "callback" : "player.action"
     }
   },
   "keyup" : {

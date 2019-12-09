@@ -9,6 +9,8 @@ export default class Player extends Prefab {
     this.walkingSpeed = +properties.walking_speed;
     this.crossSpeed = +properties.cross_speed;
 
+    this.isColliding = false;
+
     this.scene.cameras.main.startFollow(this);
 
     // Colliders
@@ -23,9 +25,17 @@ export default class Player extends Prefab {
     // this.move_up = this.scene.imput.keyboard.addKey.(Phaser.Input.Keyboard.KeyCodes.UP);
   }
 
-  update () {
+  update (){
     if (this.body) {
       this.updateDirection();
+    }
+  }
+
+  action(){
+    // this.scene.physics.add.collider(this, this.scene.groups.players, this.collide, null, this);
+    console.log(this.scene.physics.collide(this.body, this.scene.groups.pnjs));
+    if (this.scene.physics.collide(this.body, this.scene.groups.pnjs, null, null, this)) {
+      console.log("ACTION?");
     }
   }
 

@@ -8,6 +8,8 @@
     "witch_spritesheet" : {"type": "spritesheet", "source": "assets/images/witch.png", "frame_width": 32, "frame_height": 32},
     "old_man_spritesheet" : {"type": "spritesheet", "source": "assets/images/old_man.png", "frame_width": 32, "frame_height": 32},
 
+    "talking_spritesheet" : {"type": "spritesheet", "source": "assets/images/PNJ_bubble.png", "frame_width": 32, "frame_height": 32},
+
     "message_box_image" : {"type": "image", "source": "assets/images/message_box.png"},
 
     "village_level_tilemap" : {"type" : "tilemap", "source": "assets/tilemaps/village.json"}

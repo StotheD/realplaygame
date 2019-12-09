@@ -379,6 +379,7 @@
   <object id="10" name="Old_man" type="pnj" x="431" y="435">
    <properties>
     <property name="chapitre" value="village-0"/>
+    <property name="emote" value="talking_spritesheet"/>
     <property name="group" value="pnjs"/>
     <property name="message" value="old_man_message"/>
     <property name="texture" value="old_man_spritesheet"/>
@@ -388,6 +389,7 @@
   <object id="11" name="Witch" type="pnj" x="56" y="433">
    <properties>
     <property name="chapitre" value="village-0"/>
+    <property name="emote" value="talking_spritesheet"/>
     <property name="group" value="pnjs"/>
     <property name="message" value="witch_message"/>
     <property name="texture" value="witch_spritesheet"/>

@@ -1,6 +1,7 @@
 import 'phaser';
 import Prefab from "../Prefab";
 import MessageBox from "../HUD/MessageBox";
+import Emote from "../HUD/Emote";
 
 export default class PNJ extends Prefab {
   constructor (scene, name, position, properties) {
@@ -9,10 +10,17 @@ export default class PNJ extends Prefab {
       this.messages = this.scene.cache.json.get(properties.message);
       this.body.immovable = true;
 
-      this.scene.physics.add.collider(this, this.scene.groups.players, this.talk, null, this);
+      this.scene.physics.add.collider(this, this.scene.groups.players, this.collide, null, this);
 
       this.chapitre = this.properties.chapitre;
       this.message = this.messages[this.chapitre].first_talk;
+    }
+
+    collide(npc, player) {
+      // .setVisible(true);
+      this.emote_bubble_position = {x: this.x, y: this.y - 28},
+      this.scene.emoteBubble = new Emote (this.scene, this.name+"emote_bubble", this.emote_bubble_position, {texture: this.properties.emote, group:"hud", scale:{x:0.7,y:0.7}})
+      // this.anims.play('action');
     }
 
     talk(npc, player) {
@@ -47,5 +55,9 @@ export default class PNJ extends Prefab {
     endTalk(){
       this.scene.currentMessageBox.destroy();
       this.scene.user_input.setInput(this.scene.user_inputs.world_user_input);
+    }
+
+    stopCollide(){
+      this.scene.emoteBubble.destroy();
     }
 }
